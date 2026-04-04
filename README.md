@@ -1,5 +1,10 @@
 # Agent Evaluation Framework
 
+[![Build](https://github.com/Retsumdk/agent-evaluation-framework/workflows/CI/badge.svg)](https://github.com/Retsumdk/agent-evaluation-framework/actions)
+[![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://python.org)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-v1.0.0-orange.svg)](release)
+
 A comprehensive, production-ready framework for evaluating AI agents across multiple dimensions of capability. Built for teams who need to benchmark, test, and improve their AI agents with measurable metrics.
 
 ## Why This Framework
@@ -64,7 +69,7 @@ print(results.metrics())
 Benchmarks define what to test:
 
 | Benchmark | What It Measures |
-|-----------|---------------|
+|-----------|-----------------|
 | `task_completion` | Did the agent achieve the goal? |
 | `tool_efficiency` | Optimal tool usage |
 | `error_recovery` | Recovery from failures |
@@ -377,6 +382,12 @@ class Benchmark:
     ) -> Benchmark:
         ...
 ```
+
+## 🔗 Related Repos
+
+- [agent-a2a-bridge](https://github.com/Retsumdk/agent-a2a-bridge) — A2A protocol for multi-agent communication
+- [agent-memory-store](https://github.com/Retsumdk/agent-memory-store) — Persistent memory for AI agents
+- [prompt-version-control](https://github.com/Retsumdk/prompt-version-control) — Version control for AI prompts
 
 ## License
 
