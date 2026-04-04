@@ -1,0 +1,18 @@
+evaluation:
+  iterations: 3
+  timeout: 60
+  parallel: 4
+  
+benchmarks:
+  task_completion:
+    threshold: 0.8
+  latency:
+    p95_threshold_ms: 5000
+    
+storage:
+  backend: sqlite
+  path: ./eval.db
+  
+reporting:
+  format: json
+  output: ./results/

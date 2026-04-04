@@ -1,0 +1,20 @@
+[
+  {
+    "id": "task_001",
+    "input": "What is the capital of France?",
+    "expected": "Paris",
+    "context": {}
+  },
+  {
+    "id": "task_002", 
+    "input": "List 3 colors",
+    "expected": "colors",
+    "context": {}
+  },
+  {
+    "id": "task_003",
+    "input": "Write a hello world in Python",
+    "expected": "print",
+    "context": {}
+  }
+]
