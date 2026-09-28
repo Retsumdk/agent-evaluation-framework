@@ -10,7 +10,7 @@ import json
 
 from .protocol import AgentProtocol
 from .benchmark import Benchmark, BenchmarkResult
-from .metrics import Metrics, MetricsCalculator
+from .metrics import Metrics, MetricsBuilder
 
 
 @dataclass
@@ -21,7 +21,7 @@ class EvaluationResults:
     metrics: dict
     summary: dict
     
-    def summary(self) -> str:
+    def render_summary(self) -> str:
         return f"""
 Agent: {self.agent_name}
 Benchmarks: {len(self.benchmark_results)}
@@ -30,7 +30,7 @@ Avg Latency: {self.summary.get('avg_latency', 0):.2f}s
 Score: {self.summary.get('overall_score', 0)}/100
         """.strip()
     
-    def metrics(self) -> dict:
+    def get_metrics(self) -> dict:
         return self.metrics
     
     def to_json(self, path: str):

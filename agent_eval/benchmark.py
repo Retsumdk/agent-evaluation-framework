@@ -343,3 +343,31 @@ def create_benchmark(name: str, **kwargs) -> Benchmark:
         raise ValueError(f"Unknown benchmark: {name}")
     
     return benchmarks[name](**kwargs)
+
+
+class BenchmarkBuilder:
+    """Fluent builder for composing a benchmark suite.
+
+    Example:
+        benchmarks = (
+            BenchmarkBuilder()
+            .add_named("task_completion")
+            .add_named("tool_efficiency", max_tools=8)
+            .add(Benchmark.consistency())
+            .build()
+        )
+    """
+
+    def __init__(self):
+        self._benchmarks: list[Benchmark] = []
+
+    def add(self, benchmark: Benchmark) -> "BenchmarkBuilder":
+        self._benchmarks.append(benchmark)
+        return self
+
+    def add_named(self, name: str, **kwargs) -> "BenchmarkBuilder":
+        self._benchmarks.append(create_benchmark(name, **kwargs))
+        return self
+
+    def build(self) -> list[Benchmark]:
+        return list(self._benchmarks)
